@@ -52,7 +52,7 @@ func main4 () {
 }
 
 //string 
-func main() {
+func main3() {
 	var hello string  = "Olá mundo"
 	var question string = "Como vai?"
 
@@ -61,4 +61,52 @@ func main() {
 	fmt.Println(meet)
 	fmt.Println(strings.ToUpper(meet)) //pacote strings para fazer operaçoes basicas nos textos
 	fmt.Println(strings.Contains(meet, "mundo"))	
+}
+
+
+//array
+func main5() {
+	var gavetas [2]string //damos qual o tamanho do array
+	gavetas[0] = "copos" // adicionamos o valor e qual o indice que ele ocupa
+	gavetas[1] = "panos" //	nao e possivel adicionar mais itens do que o array permite, dara erro de compilacao
+
+	fmt.Println(gavetas[1]) // para ler o array eu preciso informar qual o indice que quero ler 
+}
+
+//slices, tem tamanhos flexiveis para armazenar itens do mesmo tipo 
+func main5() {
+	var gavetinhas []string // Aqui eu gero o slice
+	gavetinhas = append(gavetinhas, "copinhos", "paninhos") // Para popular um slice é preciso utilizar a função append
+	fmt.Println(gavetinhas)
+	fmt.Println(len(gavetinhas)) // Podemos validar qual o tamanho do slice gavetinhas
+	fmt.Println(gavetinhas[0]) // Para acessar o slice, também é por meio de indices.
+	fmt.Println(gavetinhas[0:1]) // Para fazer uma divisão do valor final do slice precisamos informar qual o indice que se inicia, qual que termina SEM CONTAR. Se eu não passar o valor de indice inicial, ele vai pegar o na posição de 0. Se eu não passo algo para o final, ele considera o último indice
+}
+
+//Maps sao estrutura chave valor com tipos na chave e no valor para inserção rápida
+func main6() {
+	var pessoinhas = map[string]int{} /// Aqui criamos a variavel e informamos qual para o map qual será o tipo da chave (string) e qual será o tipo do valor {int}
+	pessoinhas ["lais"] = 26 //inserção do valor
+	pessoinhas ["leo"] = 32
+	fmt.Println(pessoinhas)
+	fmt.Println(pessoinhas["lais"]) //podemos fazer ref a estrutura do map para conseguir acessar o valor. Caso eu queira validar antes de acessar, posso fazer uma validação com SE 
+	if  idade, ok := pessoinhas ["lais"]; ok { // a informação básica é "Se a idade for OK e a pessoa  =  a LAIS for OK, faça isso, se não faça aquilo."
+		fmt.Println("Pessoa existe no map", idade, ok)
+	} else {
+		fmt.Println("Pessoa não existe no map")
+	}
+}
+
+/// fluxo de controle  (if/else/switch/for/range)
+
+func main () {
+	nota := 75
+
+	if nota >= 90 {
+		fmt.Println("Aprovado com distinção")
+	} else if  nota >= 70 {
+		fmt.Println("Aprovado")
+	} else {
+		fmt.Println("Reprovado")
+	}
 }
